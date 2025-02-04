@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation - LaTeX Template
+% Version 2.0 (March 8, 2022)
+% Original Template: https://www.LaTeXTemplates.com
+% License: CC BY-NC-SA 4.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+	11pt, % Default font size
+	% t, % Align vertically at the top
+	% aspectratio=169, % Set 16:9 aspect ratio
+]{beamer}
+
+% Path for images
+\graphicspath{{img/}}
+
+% Additional packages
+% \usepackage{booktabs} % Enhanced table lines
+\usepackage{palatino} % Palatino font
+\usepackage[default]{opensans} % Open Sans font
+\usepackage{subcaption}
+\usepackage{tikz}
+\input{config/code_langs} % Code
+
+%----------------------------------------------------------------------------------------
+%	THEME AND COLOR SELECTION
+%----------------------------------------------------------------------------------------
+
+\usetheme{default} % Layout theme
+
+% Custom color definitions
+\definecolor{primaryColor}{RGB}{109, 30, 133} % Primary color
+\definecolor{secondaryColor}{RGB}{1, 1, 1} % Secondary color
+
+% Applying colors to the theme
+\setbeamercolor{structure}{fg=primaryColor}
+\setbeamercolor{palette primary}{bg=primaryColor, fg=white}
+\setbeamercolor{palette secondary}{bg=secondaryColor, fg=white}
+\setbeamercolor{title}{bg=primaryColor, fg=white} % Main title color
+
+% Header colors
+\setbeamercolor{headline}{bg=secondaryColor, fg=white}
+\setbeamercolor{section in head/foot}{bg=primaryColor, fg=white}
+\setbeamercolor{subsection in head/foot}{bg=secondaryColor, fg=white}
+
+% Footer color settings
+\setbeamercolor{author in head/foot}{bg=primaryColor, fg=white} % Author name
+\setbeamercolor{title in head/foot}{bg=secondaryColor, fg=white} % Title
+\setbeamercolor{date in head/foot}{bg=primaryColor, fg=white} % Year
+\setbeamercolor{page number in head/foot}{bg=primaryColor, fg=white} % Page number
+
+% Inner and outer themes
+\useinnertheme{circles} % Inner theme
+\useoutertheme{miniframes} % Outer theme
+\setbeamertemplate{navigation symbols}{} % Remove navigation symbols
+
+%------------------
+%	PRESENTATION INFORMATION
+%------------------
+
+\title[Short Title]{Full Title}
+\author[Surname Name]{Surname Name} 
+\institute[ICM]{ARAMIS Lab \\ ICM} 
+\date[2024]{Month / Year} 
+
+%------------------
+
+\begin{document}
+
+%------------------
+%	TITLE SLIDE
+%------------------
+
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=0.45\linewidth]{logo/logo_ARAMISLAB.png}
+	\end{figure}
+	\titlepage % Displays the title slide
+\end{frame}
+
+%------------------
+%	TABLE OF CONTENTS SLIDE
+%------------------
+
+\begin{frame}
+	\frametitle{Presentation Structure} % Slide title
+	\tableofcontents % Displays the table of contents
+\end{frame}
+
+%------------------
+%	BODY SECTIONS
+%------------------
+
+\include{sections/section00}
+\include{sections/section01} 
+\include{sections/section02} 
+\include{sections/section03} 
+
+%------------------
+
+\end{document}
