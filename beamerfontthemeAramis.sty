@@ -11,13 +11,12 @@
 \ProcessOptionsBeamer
 
 \ifthenelse{\boolean{nexa}}{
-  \setsansfont{Nexa}[
-    Ligatures = TeX, 
-    Path = fonts/,
-    Extension = .otf,
-    UprightFont = *Light,
-    BoldFont = *Bold,
-    ItalicFont = *LightItalic
+  \setmainfont{Nexa}[
+    Extension = .otf ,
+    UprightFont = *Light ,
+    BoldFont = *Bold ,
+    ItalicFont = *LightItalic ,
+    BoldItalicFont = *BoldItalic 
   ]
 }{
   \setsansfont{Trebuchet MS}
