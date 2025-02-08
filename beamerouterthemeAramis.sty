@@ -1,0 +1,71 @@
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+\RequirePackage{graphics}
+\RequirePackage{tikz}
+
+\mode<presentation>
+
+\newboolean{showmaxslides}
+\setboolean{showmaxslides}{false}
+
+\DeclareOptionBeamer{showmaxslides}{\setboolean{showmaxslides}{true}}
+
+\ProcessOptionsBeamer
+
+\newcommand{\logopath}{logos/logo_ARAMISLAB}
+
+\newcommand{\logotitle}{\includegraphics[width=\linewidth]{\logopath}}
+\newcommand{\logoheader}{\includegraphics[width=.125\linewidth]{\logopath}}
+
+\newcommand{\showpagenumber}{%
+  \insertframenumber\ifthenelse{ %
+    \boolean{showmaxslides}%
+ }{%
+    /\inserttotalframenumber%
+  }{}%
+}
+
+\newlength{\myleftmargin}
+\setlength{\myleftmargin}{.0525\paperwidth}
+\newlength{\myrightmargin}
+\setlength{\myrightmargin}{.0525\paperwidth}
+\newlength{\mytextlength}
+\setlength{\mytextlength}{\paperwidth - \myleftmargin - \myrightmargin}
+\newlength{\mytitleheight}
+\setlength{\mytitleheight}{.15\paperheight}
+\newlength{\myframenumberwidth}
+\setlength{\myframenumberwidth}{.06\paperwidth}
+\ifthenelse{ %
+    \boolean{showmaxslides}%
+ }{%
+  \setlength{\myframenumberwidth}{.07\paperwidth}
+ }{%
+  \setlength{\myframenumberwidth}{.04\paperwidth}
+ }
+
+\setbeamersize{text margin left=\myleftmargin, text margin right=\myrightmargin}
+
+\defbeamertemplate*{frametitle}{texsx}[1][]{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\mytitleheight]{frametitle} 
+    \begin{tikzpicture}
+      \fill[white] (0,0) rectangle(\myleftmargin,\mytitleheight);
+      \fill[white] (\myleftmargin,0) rectangle(\myleftmargin + \mytextlength,\mytitleheight);
+      
+      \node[anchor=west] at (\myleftmargin,0.61){\insertframetitle};
+
+      \node[anchor=east] at (\myleftmargin + \mytextlength - \myframenumberwidth, 0.61){\logoheader};
+
+      \node[anchor=east] at (\myleftmargin + \mytextlength, 0.61){\usebeamerfont{framenumber}\showpagenumber};
+
+      \fill[
+        rectangle, 
+        left color = color_aramis_green, 
+        right color = color_aramis_blue, 
+        draw=white
+        ] (\myleftmargin, 0) rectangle(\myleftmargin +\mytextlength, 0.1);
+      
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\mode<all>

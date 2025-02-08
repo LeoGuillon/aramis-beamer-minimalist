@@ -1,37 +1,18 @@
-% ---- (COLORS) ---------------------------------------------------------
+\ProvidesPackage{beamerthemeAramis}
 
-% Custom color definitions
-\definecolor{primaryColor}{RGB}{109, 30, 133} % Primary color
-\definecolor{secondaryColor}{RGB}{1, 1, 1} % Secondary color
+\mode<presentation>
 
-% Applying colors to the theme
-\setbeamercolor{structure}{fg=primaryColor}
-\setbeamercolor{palette primary}{bg=primaryColor, fg=white}
-\setbeamercolor{palette secondary}{bg=secondaryColor, fg=white}
-\setbeamercolor{title}{bg=primaryColor, fg=white} % Main title color
+\DeclareOptionBeamer{showmaxslides}{\PassOptionsToPackage{showmaxslides}{beamerouterthemeAramis}}
+\DeclareOptionBeamer{nexa}{\PassOptionsToPackage{nexa}{beamerfontthemeAramis}}
 
-% Header colors
-\setbeamercolor{headline}{bg=secondaryColor, fg=white}
-\setbeamercolor{section in head/foot}{bg=primaryColor, fg=white}
-\setbeamercolor{subsection in head/foot}{bg=secondaryColor, fg=white}
+\ProcessOptionsBeamer
 
-% Footer color settings
-\setbeamercolor{author in head/foot}{bg=primaryColor, fg=white} % Author name
-\setbeamercolor{title in head/foot}{bg=secondaryColor, fg=white} % Title
-\setbeamercolor{date in head/foot}{bg=primaryColor, fg=white} % Year
-\setbeamercolor{page number in head/foot}{bg=primaryColor, fg=white} % Page number
-
-% ---- (FONTS) ---------------------------------------------------------
-
-% ---- (INNER THEME) ---------------------------------------------------------
-
-\useinnertheme{circles} % Inner theme
-
-
-% ---- (OUTER THEME) ---------------------------------------------------------
-
-\useoutertheme{default} % Outer theme
-
-% ---- (MISC) ---------------------------------------------------------
+\usecolortheme{Aramis}
+\usefonttheme{Aramis}
+\useoutertheme{Aramis}
+\useinnertheme{Aramis}
 
 \setbeamertemplate{navigation symbols}{} % Remove navigation symbols
+
+
+\mode<all>

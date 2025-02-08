@@ -9,61 +9,33 @@
 
 \documentclass[
 	11pt, % Default font size
-	% t, % Align vertically at the top
-	% aspectratio=169, % Set 16:9 aspect ratio
+	aspectratio=169, % Set 16:9 aspect ratio
 ]{beamer}
 
-% Path for images
-\graphicspath{{img/}}
 
-% Additional packages
-% \usepackage{booktabs} % Enhanced table lines
-\usepackage{palatino} % Palatino font
-\usepackage[default]{opensans} % Open Sans font
+% Packages
+\usepackage[T1]{fontenc}
 \usepackage{subcaption}
 \usepackage{tikz}
-\input{config/code_langs} % Code
+% \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
 
-%----------------------------------------------------------------------------------------
-%	THEME AND COLOR SELECTION
-%----------------------------------------------------------------------------------------
+% Layout theme ; Available options :
+% - nexa : uses Nexa font instead of default Trebuchet MS
+% - showmaxslides : displays the total page number in the page numbering
+\usetheme[nexa]{Aramis}
 
-\usetheme{default} % Layout theme
-
-% Custom color definitions
-\definecolor{primaryColor}{RGB}{109, 30, 133} % Primary color
-\definecolor{secondaryColor}{RGB}{1, 1, 1} % Secondary color
-
-% Applying colors to the theme
-\setbeamercolor{structure}{fg=primaryColor}
-\setbeamercolor{palette primary}{bg=primaryColor, fg=white}
-\setbeamercolor{palette secondary}{bg=secondaryColor, fg=white}
-\setbeamercolor{title}{bg=primaryColor, fg=white} % Main title color
-
-% Header colors
-\setbeamercolor{headline}{bg=secondaryColor, fg=white}
-\setbeamercolor{section in head/foot}{bg=primaryColor, fg=white}
-\setbeamercolor{subsection in head/foot}{bg=secondaryColor, fg=white}
-
-% Footer color settings
-\setbeamercolor{author in head/foot}{bg=primaryColor, fg=white} % Author name
-\setbeamercolor{title in head/foot}{bg=secondaryColor, fg=white} % Title
-\setbeamercolor{date in head/foot}{bg=primaryColor, fg=white} % Year
-\setbeamercolor{page number in head/foot}{bg=primaryColor, fg=white} % Page number
-
-% Inner and outer themes
-\useinnertheme{circles} % Inner theme
-\useoutertheme{miniframes} % Outer theme
-\setbeamertemplate{navigation symbols}{} % Remove navigation symbols
+% Paths and misc stuff
+\graphicspath{{img/}}
 
 %------------------
 %	PRESENTATION INFORMATION
 %------------------
 
-\title[Short Title]{Full Title}
-\author[Surname Name]{Surname Name} 
-\institute[ICM]{ARAMIS Lab \\ ICM} 
-\date[2024]{Month / Year} 
+\title{Title : usually longer than you would expect for a research paper, so make sure it fits}
+\subtitle{Subtitle : shorter than the title}
+\author{Surname Name} 
+\institute{ARAMIS Lab} 
+\date{\today} 
 
 %------------------
 
@@ -74,9 +46,6 @@
 %------------------
 
 \begin{frame}
-	\begin{figure}
-		\includegraphics[width=0.45\linewidth]{logo/logo_ARAMISLAB.png}
-	\end{figure}
 	\titlepage % Displays the title slide
 \end{frame}
 
@@ -85,7 +54,7 @@
 %------------------
 
 \begin{frame}
-	\frametitle{Presentation Structure} % Slide title
+	\frametitle{Presentation Outline} % Slide title
 	\tableofcontents % Displays the table of contents
 \end{frame}
 
@@ -93,11 +62,56 @@
 %	BODY SECTIONS
 %------------------
 
-\include{sections/section00}
-\include{sections/section01} 
-\include{sections/section02} 
-\include{sections/section03} 
+\section{Text}
 
+\begin{frame}
+  \frametitle{Plain text}
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a cursus sapien. Aenean sed mollis mauris. Morbi hendrerit eros id tortor facilisis, at consectetur dui iaculis. Nullam pharetra felis sit amet velit porttitor placerat. In vel lectus ipsum. Aliquam vestibulum a erat et sollicitudin. Quisque volutpat odio finibus nisi pellentesque, a efficitur lorem aliquam. Nunc tellus est, lacinia at mattis sed, vulputate sed neque.  
+
+\end{frame}
+
+\section{Lists}
+
+\begin{frame}
+  \frametitle{Bullet list}
+
+  \begin{itemize}
+    \item First point
+    \item Second point
+    \item Third point
+  \end{itemize} 
+
+\end{frame}
+
+\begin{frame}{Numbered list}
+  \begin{enumerate}
+    \item First point
+    \item Second point
+    \item \begin{enumerate}
+      \item Subpoint
+    \end{enumerate} 
+  \end{enumerate}
+
+\end{frame}
+
+
+
+\section{Figures and stuff}
+
+\begin{frame}
+  \frametitle{Figure}
+
+  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Table}
+
+  
+
+\end{frame}
 %------------------
 
 \end{document}

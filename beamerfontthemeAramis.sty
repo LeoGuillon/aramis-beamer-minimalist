@@ -1,0 +1,43 @@
+\RequirePackage{ifthen}
+\RequirePackage{fontspec}
+
+\mode<presentation>
+
+\newboolean{nexa}
+\setboolean{nexa}{false}
+
+\DeclareOptionBeamer{nexa}{\setboolean{nexa}{true}}
+
+\ProcessOptionsBeamer
+
+\ifthenelse{\boolean{nexa}}{
+  \setsansfont{Nexa}[
+    Ligatures = TeX, 
+    Path = fonts/,
+    Extension = .otf,
+    UprightFont = *Light,
+    BoldFont = *Bold,
+    ItalicFont = *LightItalic
+  ]
+}{
+  \setsansfont{Trebuchet MS}
+}
+
+
+\usefonttheme{professionalfonts}
+
+
+\setbeamerfont{normal text}{family = \sffamily, size = \normalsize, series = \mdseries}
+
+\setbeamerfont{all titles}{parent = normal text}
+\setbeamerfont{title}{parent = all titles, size = \Large, series = \bfseries}
+\setbeamerfont{frametitle}{parent = all titles, size = \large, series = \bfseries}
+\setbeamerfont{subtitle}{parent = all titles, shape = \itshape}
+
+\setbeamerfont{author}{parent = normal text, size = \small}
+\setbeamerfont{institute}{parent = normal text, size = \small}
+\setbeamerfont{date}{parent = normal text, size = \small}
+
+\setbeamerfont{framenumber}{parent = normal text, size = \footnotesize}
+
+\mode<all>
