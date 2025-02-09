@@ -1,5 +1,4 @@
 \RequirePackage{ifthen}
-\RequirePackage{fontspec}
 
 \mode<presentation>
 
@@ -8,22 +7,26 @@
 
 \DeclareOptionBeamer{nexa}{\setboolean{nexa}{true}}
 
+
 \ProcessOptionsBeamer
 
-\ifthenelse{\boolean{nexa}}{
-  \setmainfont{Nexa}[
-    Extension = .otf ,
-    UprightFont = *Light ,
-    BoldFont = *Bold ,
-    ItalicFont = *LightItalic ,
-    BoldItalicFont = *BoldItalic 
-  ]
-}{
-  \setsansfont{Trebuchet MS}
-}
-
-
-\usefonttheme{professionalfonts}
+\ifLuaTeX
+  \RequirePackage{fontspec}
+  \ifthenelse{\boolean{nexa}}{
+    \setsansfont{Nexa}[
+      Path = fonts/,
+      UprightFont = *Light,
+      BoldFont = *Bold,
+      ItalicFont = *LightItalic,
+      BoldItalicFont = *BoldItalic,
+      Extension = .otf
+    ]
+  }{
+    \setsansfont{Trebuchet MS}
+  }
+\else
+% 
+\fi
 
 
 \setbeamerfont{normal text}{family = \sffamily, size = \normalsize, series = \mdseries}
@@ -36,6 +39,8 @@
 \setbeamerfont{author}{parent = normal text, size = \small}
 \setbeamerfont{institute}{parent = normal text, size = \small}
 \setbeamerfont{date}{parent = normal text, size = \small}
+
+\setbeamerfont{section in toc}{parent = normal text, series = \bfseries}
 
 \setbeamerfont{framenumber}{parent = normal text, size = \footnotesize}
 
