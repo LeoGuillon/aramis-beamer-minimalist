@@ -24,9 +24,18 @@
   }{
     \setsansfont{Trebuchet MS}
   }
-\else
-% 
 \fi
+
+\ifPDFTeX
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{times}
+\fi
+
+\renewcommand\footnotesize{\fontsize{8pt}{10pt}\selectfont}
+\renewcommand\small{\fontsize{10pt}{12pt}\selectfont}
+\renewcommand\normalsize{\fontsize{12pt}{14pt}\selectfont}
+\renewcommand\large{\fontsize{14pt}{16pt}\selectfont}
+\renewcommand\Large{\fontsize{16pt}{18pt}\selectfont}
 
 
 \setbeamerfont{normal text}{family = \sffamily, size = \normalsize, series = \mdseries}
@@ -43,5 +52,8 @@
 \setbeamerfont{section in toc}{parent = normal text, series = \bfseries}
 
 \setbeamerfont{framenumber}{parent = normal text, size = \footnotesize}
+
+\setbeamerfont{caption}{parent=normal text, size=\small}
+\setbeamerfont{caption name}{parent=normal text, size=\small, series = \bfseries}
 
 \mode<all>
