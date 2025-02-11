@@ -31,17 +31,21 @@
   \RequirePackage{times}
 \fi
 
-\renewcommand\footnotesize{\fontsize{8pt}{10pt}\selectfont}
-\renewcommand\small{\fontsize{10pt}{12pt}\selectfont}
-\renewcommand\normalsize{\fontsize{12pt}{14pt}\selectfont}
-\renewcommand\large{\fontsize{14pt}{16pt}\selectfont}
-\renewcommand\Large{\fontsize{16pt}{18pt}\selectfont}
+%  if you want to customize the various font sizes
+% \renewcommand\footnotesize{\fontsize{8pt}{10pt}\selectfont}
+% \renewcommand\small{\fontsize{10pt}{12pt}\selectfont}
+% \renewcommand\normalsize{\fontsize{12pt}{14pt}\selectfont}
+% \renewcommand\large{\fontsize{14pt}{16pt}\selectfont}
+% \renewcommand\Large{\fontsize{16pt}{18pt}\selectfont}
 
 
 \setbeamerfont{normal text}{family = \sffamily, size = \normalsize, series = \mdseries}
 
 \setbeamerfont{all titles}{parent = normal text}
-\setbeamerfont{title}{parent = all titles, size = \Large, series = \bfseries}
+\setbeamerfont{title}{parent = all titles,
+  size = \Large,
+  series = \bfseries,
+  shape = \scshape}
 \setbeamerfont{frametitle}{parent = all titles, size = \large, series = \bfseries}
 \setbeamerfont{subtitle}{parent = all titles, shape = \itshape}
 
@@ -53,7 +57,7 @@
 
 \setbeamerfont{framenumber}{parent = normal text, size = \footnotesize}
 
-\setbeamerfont{caption}{parent=normal text, size=\small}
-\setbeamerfont{caption name}{parent=normal text, size=\small, series = \bfseries}
+\setbeamerfont{caption}{parent=normal text, size=\footnotesize}
+\setbeamerfont{caption name}{parent=caption, series = \bfseries}
 
 \mode<all>
