@@ -19,10 +19,11 @@
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
 % \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
 
-% Layout theme 
+% Layout theme
 \usetheme[
   % showmaxslides, % displays the total page number in the page numbering
-  nexa  % uses Nexa font instead of default Trebuchet MS ; 
+  % showsectiontoc, % displays a table of contents at the beginning of each section
+  nexa  % uses Nexa font instead of default Trebuchet MS ;
         % WARNING : you must build with LuaTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
 ]{Aramis}
 
@@ -35,12 +36,11 @@
 
 \title{Title : usually longer than you would expect for a research paper, so make sure it fits}
 \subtitle{Subtitle : shorter than the title}
-\author{Author(s)} 
-\institute{ARAMIS Lab} 
-\date{\today} 
+\author{Author(s)}
+\institute{ARAMIS Lab}
+\date{\today}
 
 %------------------
-
 \begin{document}
 
 %------------------
@@ -57,7 +57,7 @@
 
 \begin{frame}
 	\frametitle{Presentation Outline} % Slide title
-	\tableofcontents % Displays the table of contents
+	\tableofcontents[hideallsubsections] % Displays the table of contents
 \end{frame}
 
 %------------------
@@ -73,12 +73,20 @@
   \vfill
   \lipsum[2][1-5]
   \vfill
-  \lipsum[3][1-5] oui.
+  \lipsum[3][1-5]
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some maths}
+
+  \[\mathcal{N}(x~|~\mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
 
 \end{frame}
 
 \section{Lists}
 
+\subsection{Bullet lists}
 \begin{frame}
   \frametitle{Bullet list}
 
@@ -86,10 +94,11 @@
     \item First point
     \item Second point
     \item Third point
-  \end{itemize} 
+  \end{itemize}
 
 \end{frame}
 
+\subsection{Numbered lists}
 \begin{frame}{Numbered list}
   \begin{enumerate}
     \item First point
@@ -109,14 +118,14 @@
   \begin{figure}
     \includegraphics[height=.6\paperheight]{logos/logo_ARAMISLAB.png}
     \caption{Une belle image !}
-  \end{figure} 
+  \end{figure}
 
 \end{frame}
 
 \begin{frame}
   \frametitle{Table}
 
-  
+
 
 \end{frame}
 

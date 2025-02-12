@@ -1,6 +1,20 @@
+\RequirePackage{tikz}
+
 \mode<presentation>
 
 \useinnertheme{circles}
 
+% only displays sections
+% \setcounter{tocdepth}{1}
+
+\AtBeginSection{
+  \begin{frame}{Section outline}
+    \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+
 \setbeamertemplate{caption}[numbered]
+
+
 \mode<all>
