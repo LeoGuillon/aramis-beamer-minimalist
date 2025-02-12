@@ -15,7 +15,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{subcaption}
 \usepackage{tikz}
-\usepackage{lipsum}
+\usepackage{lipsum} % useful for creating some dummy text
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
 % \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
 
@@ -38,7 +38,7 @@
 \subtitle{Subtitle : shorter than the title}
 \author{Author(s)}
 \institute{ARAMIS Lab}
-\date{\today}
+\date{Date of the presentation}
 
 %------------------
 \begin{document}
@@ -80,7 +80,9 @@
 \begin{frame}
   \frametitle{Some maths}
 
-  \[\mathcal{N}(x~|~\mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
+  \lipsum[4][1-5]
+  \[\mathcal{N}(x~|~\mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\},\]
+  where $\mu$ is the \emph{mean} and $\sigma$ is the \emph{variance}.
 
 \end{frame}
 
