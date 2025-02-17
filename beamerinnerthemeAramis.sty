@@ -14,10 +14,39 @@
 
 \setbeamertemplate{caption}[numbered]
 
-\newlength{\titlepageuppermargin}
-\setlength{\titlepageuppermargin}{1cm}
-% \defbeamertemplate{title page}{aramis-minimalist}[1][]{
+% lengths
 
-% }
+% vertical bar
+\newlength{\verticalbarleftshift}
+\setlength{\verticalbarleftshift}{-0.19\paperwidth}
+% \newlength{\verticalbaruppermargin}
+% \setlength{\verticalbaruppermargin}{2cm}
+% \newlength{\verticalbarbottommargin}
+% \setlength{\verticalbarbottommargin}{2cm}
+% \newlength{\verticalbarheight}
+% \setlength{\verticalbarheight}{\paperheight - \verticalbaruppermargin - \verticalbaruppermargin}
+% \newlength{\verticalbarwidth}
+% \setlength{\verticalbarwidth}{0.125cm}
+
+% colored logo
+
+% gray logo
+
+\defbeamertemplate*{title page}{aramis-minimalist}[1][]{
+  \begin{tikzpicture}[remember picture, overlay]
+    % temporary guidelines
+
+    % page box
+
+    % middle lines
+    \draw[color_aramis_black, very thin, densely dashed] (current page.west) -- (current page.east);
+    \draw[color_aramis_black, very thin, densely dashed] (current page.north) -- (current page.south);
+
+    % vertical bar
+    \node (vertical bar top) at ([xshift=\verticalbarleftshift]current page.north) {};
+    \node (vertical bar bottom) at ([xshift=\verticalbarleftshift]current page.south) {};
+    \draw[color_aramis_black] (vertical bar top) -- (vertical bar bottom);
+  \end{tikzpicture}
+}
 
 \mode<all>
