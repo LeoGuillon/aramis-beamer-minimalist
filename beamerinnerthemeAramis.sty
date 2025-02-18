@@ -19,15 +19,20 @@
 % vertical bar
 \newlength{\verticalbarleftshift}
 \setlength{\verticalbarleftshift}{-0.19\paperwidth}
-% \newlength{\verticalbaruppermargin}
-% \setlength{\verticalbaruppermargin}{2cm}
-% \newlength{\verticalbarbottommargin}
-% \setlength{\verticalbarbottommargin}{2cm}
-% \newlength{\verticalbarheight}
-% \setlength{\verticalbarheight}{\paperheight - \verticalbaruppermargin - \verticalbaruppermargin}
-% \newlength{\verticalbarwidth}
-% \setlength{\verticalbarwidth}{0.125cm}
+\newlength{\verticalbaruppermargin}
+\setlength{\verticalbaruppermargin}{0.08\paperheight}
+\newlength{\verticalbarbottommargin}
+\setlength{\verticalbarbottommargin}{\verticalbaruppermargin}
+\newlength{\verticalbarheight}
+\setlength{\verticalbarheight}{\paperheight - \verticalbaruppermargin - \verticalbaruppermargin}
+\newlength{\verticalbarwidth}
+\setlength{\verticalbarwidth}{0.125cm}
 
+% text elements
+\newlength{\textboxsmargin}
+\setlength{\textboxsmargin}{0.06\paperwidth}
+\newlength{\textboxwidth}
+\setlength{\textboxwidth}{0.48\paperwidth}
 % colored logo
 
 % gray logo
@@ -39,13 +44,38 @@
     % page box
 
     % middle lines
-    \draw[color_aramis_black, very thin, densely dashed] (current page.west) -- (current page.east);
-    \draw[color_aramis_black, very thin, densely dashed] (current page.north) -- (current page.south);
+    % \draw[color_aramis_black, very thin, dotted] (current page.west) -- (current page.east);
+    % \draw[color_aramis_black, very thin, dotted] (current page.north) -- (current page.south);
 
     % vertical bar
-    \node (vertical bar top) at ([xshift=\verticalbarleftshift]current page.north) {};
-    \node (vertical bar bottom) at ([xshift=\verticalbarleftshift]current page.south) {};
+    \node (vertical bar top) at ([xshift=\verticalbarleftshift, yshift=-\verticalbaruppermargin]current page.north) {};
+    \node (vertical bar bottom) at ([xshift=\verticalbarleftshift, yshift=\verticalbaruppermargin]current page.south) {};
     \draw[color_aramis_black] (vertical bar top) -- (vertical bar bottom);
+
+    % text elements margin
+    \node (text margin top) at ([xshift=\textboxsmargin]vertical bar top) {};
+    \node (text margin bottom) at ([xshift=\textboxsmargin]vertical bar bottom) {};
+    % \draw[color_aramis_black, very thin, dashed] (text margin top) -- (text margin bottom);
+
+    % text elements
+    \node (title)
+      at ([yshift=-0.5\paperheight+\verticalbaruppermargin]text margin top)
+      [anchor=south west, text width=\textboxwidth]
+      {\usebeamerfont{title}\inserttitle};
+    \node (subtitle)
+      at ([yshift=-0.5\paperheight+\verticalbaruppermargin]text margin top)
+      [anchor=north west, text width=\textboxwidth]
+      {\usebeamerfont{subtitle}\insertsubtitle};
+
+    \node (authors)
+      at ([yshift=0.12\paperheight]text margin bottom)
+      [anchor=south west, text width=\textboxwidth]
+      {\usebeamerfont{author}\usebeamercolor{author}\insertauthor};
+    \node (date)
+      at ([yshift=0.12\paperheight]text margin bottom)
+      [anchor=north west, text width=\textboxwidth]
+      {\usebeamerfont{date}\usebeamercolor{date}\insertdate};
+
   \end{tikzpicture}
 }
 
