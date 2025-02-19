@@ -28,12 +28,17 @@
 \newlength{\verticalbarwidth}
 \setlength{\verticalbarwidth}{0.125cm}
 
-% text elements
-\newlength{\textboxsmargin}
-\setlength{\textboxsmargin}{0.06\paperwidth}
-\newlength{\textboxwidth}
-\setlength{\textboxwidth}{0.48\paperwidth}
-% colored logo
+% text elements, right side of vertical bar
+\newlength{\righttextboxsmargin}
+\setlength{\righttextboxsmargin}{0.06\paperwidth}
+\newlength{\righttextboxwidth}
+\setlength{\righttextboxwidth}{0.48\paperwidth}
+
+% colored logo and infos, left side of vertical bar
+\newlength{\lefttextboxsmargin}
+\setlength{\lefttextboxsmargin}{0.04\paperwidth}
+\newlength{\lefttextboxwidth}
+\setlength{\lefttextboxwidth}{0.48\paperwidth}
 
 % gray logo
 
@@ -52,29 +57,45 @@
     \node (vertical bar bottom) at ([xshift=\verticalbarleftshift, yshift=\verticalbaruppermargin]current page.south) {};
     \draw[color_aramis_black] (vertical bar top) -- (vertical bar bottom);
 
-    % text elements margin
-    \node (text margin top) at ([xshift=\textboxsmargin]vertical bar top) {};
-    \node (text margin bottom) at ([xshift=\textboxsmargin]vertical bar bottom) {};
-    % \draw[color_aramis_black, very thin, dashed] (text margin top) -- (text margin bottom);
+    % right elements margin
+    \node (right margin top) at ([xshift=\righttextboxsmargin]vertical bar top) {};
+    \node (right margin bottom) at ([xshift=\righttextboxsmargin]vertical bar bottom) {};
+    % \draw[color_aramis_black, very thin, dashed] (right margin top) -- (right margin bottom);
 
     % text elements
+    % title and subtitle
+    \node (titles anchor) at ([yshift=-0.5\paperheight+\verticalbaruppermargin]right margin top) {};
     \node (title)
-      at ([yshift=-0.5\paperheight+\verticalbaruppermargin]text margin top)
-      [anchor=south west, text width=\textboxwidth]
+      at (titles anchor)
+      [anchor=south west, text width=\righttextboxwidth]
       {\usebeamerfont{title}\inserttitle};
     \node (subtitle)
-      at ([yshift=-0.5\paperheight+\verticalbaruppermargin]text margin top)
-      [anchor=north west, text width=\textboxwidth]
+      at (titles anchor)
+      [anchor=north west, text width=\righttextboxwidth]
       {\usebeamerfont{subtitle}\insertsubtitle};
 
-    \node (authors)
-      at ([yshift=0.12\paperheight]text margin bottom)
-      [anchor=south west, text width=\textboxwidth]
-      {\usebeamerfont{author}\usebeamercolor{author}\insertauthor};
+    % author(s) and institute(s)
+    \node (author anchor) at ([yshift=0.12\paperheight]right margin bottom) {};
+    \node (author)
+      at (author anchor)
+      [anchor=south west, text width=\righttextboxwidth]
+      {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor};
+    \node (institute)
+      at (author anchor)
+      [anchor=north west, text width=\righttextboxwidth]
+      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute};
+
+    % left elements margin
+    \node (left margin top) at ([xshift=-\lefttextboxsmargin]vertical bar top) {};
+    \node (left margin bottom) at ([xshift=-\lefttextboxsmargin]vertical bar bottom) {};
+    \draw[color_aramis_black, very thin, dashed] (left margin top) -- (left margin bottom);
+
+    % date and website
+    \node (infos anchor) at ([yshift=0.12\paperheight]left margin bottom) {};
     \node (date)
-      at ([yshift=0.12\paperheight]text margin bottom)
-      [anchor=north west, text width=\textboxwidth]
-      {\usebeamerfont{date}\usebeamercolor{date}\insertdate};
+      at (infos anchor)
+      [anchor=south east]
+      {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
 
   \end{tikzpicture}
 }
