@@ -26,7 +26,7 @@
 \newlength{\verticalbarheight}
 \setlength{\verticalbarheight}{\paperheight - \verticalbaruppermargin - \verticalbaruppermargin}
 \newlength{\verticalbarwidth}
-\setlength{\verticalbarwidth}{0.125cm}
+\setlength{\verticalbarwidth}{0.00375\paperwidth}
 
 % text elements, right side of vertical bar
 \newlength{\righttextboxsmargin}
@@ -37,8 +37,14 @@
 % colored logo and infos, left side of vertical bar
 \newlength{\lefttextboxsmargin}
 \setlength{\lefttextboxsmargin}{0.04\paperwidth}
-\newlength{\lefttextboxwidth}
-\setlength{\lefttextboxwidth}{0.48\paperwidth}
+
+% height of elements
+% yshift of the point between title and subtitle
+\newlength{\titlesheight}
+\setlength{\titlesheight}{0.4\paperheight}
+% yshift of the point between author(s) and institute
+\newlength{\infosheight}
+\setlength{\infosheight}{0.12\paperheight}
 
 % gray logo
 
@@ -55,7 +61,13 @@
     % vertical bar
     \node (vertical bar top) at ([xshift=\verticalbarleftshift, yshift=-\verticalbaruppermargin]current page.north) {};
     \node (vertical bar bottom) at ([xshift=\verticalbarleftshift, yshift=\verticalbaruppermargin]current page.south) {};
-    \draw[color_aramis_black] (vertical bar top) -- (vertical bar bottom);
+    % \draw[color_aramis_black] (vertical bar top) -- (vertical bar bottom);
+    \fill[
+      rectangle,
+      top color = color_aramis_green,
+      bottom color = color_aramis_blue,
+      draw = white]
+      (vertical bar top) rectangle([xshift=\verticalbarwidth]vertical bar bottom);
 
     % right elements margin
     \node (right margin top) at ([xshift=\righttextboxsmargin]vertical bar top) {};
@@ -64,7 +76,7 @@
 
     % text elements
     % title and subtitle
-    \node (titles anchor) at ([yshift=-0.5\paperheight+\verticalbaruppermargin]right margin top) {};
+    \node (titles anchor) at ([yshift=-\titlesheight]right margin top) {};
     \node (title)
       at (titles anchor)
       [anchor=south west, text width=\righttextboxwidth]
@@ -75,7 +87,7 @@
       {\usebeamerfont{subtitle}\insertsubtitle};
 
     % author(s) and institute(s)
-    \node (author anchor) at ([yshift=0.12\paperheight]right margin bottom) {};
+    \node (author anchor) at ([yshift=\infosheight]right margin bottom) {};
     \node (author)
       at (author anchor)
       [anchor=south west, text width=\righttextboxwidth]
@@ -88,13 +100,18 @@
     % left elements margin
     \node (left margin top) at ([xshift=-\lefttextboxsmargin]vertical bar top) {};
     \node (left margin bottom) at ([xshift=-\lefttextboxsmargin]vertical bar bottom) {};
-    \draw[color_aramis_black, very thin, dashed] (left margin top) -- (left margin bottom);
+    % \draw[color_aramis_black, very thin, dashed] (left margin top) -- (left margin bottom);
 
-    % date and website
-    \node (infos anchor) at ([yshift=0.12\paperheight]left margin bottom) {};
+    % logo
+    \node (logo)
+      at ([yshift=-\titlesheight]left margin top)
+      [anchor=south east]
+      {\includegraphics[height=0.15\paperheight]{logos/logo_ARAMISLAB.png}};
+    % date
+    \node (infos anchor) at ([yshift=\infosheight]left margin bottom) {};
     \node (date)
       at (infos anchor)
-      [anchor=south east]
+      [anchor=east]
       {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
 
   \end{tikzpicture}
