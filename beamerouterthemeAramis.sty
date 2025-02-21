@@ -43,6 +43,9 @@
   \setlength{\myframenumberwidth}{.04\paperwidth}
  }
 
+\newlength{\horizontalbarheight}
+\setlength{\horizontalbarheight}{0.00375\paperwidth}
+
 % \setbeamersize{text margin left=\myleftmargin, text margin right=\myrightmargin}
 
 \defbeamertemplate*{frametitle}{texsx}[1][]{
@@ -62,7 +65,7 @@
         left color = color_aramis_green,
         right color = color_aramis_blue,
         draw=white
-        ] (\myleftmargin, 0) rectangle(\myleftmargin +\mytextlength, 0.1);
+        ] (\myleftmargin, 0) rectangle(\myleftmargin +\mytextlength, \horizontalbarheight);
 
     \end{tikzpicture}
   \end{beamercolorbox}

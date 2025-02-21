@@ -36,13 +36,13 @@
 
 \title{Title : usually longer than you would expect for a research paper, so make sure it fits}
 \subtitle{Subtitle : shorter than the title}
-\author{Author¹, another author²}
-\institute{¹ARAMIS Lab, ²Another institute}
+\author{Author\inst{1}, another author\inst{2}}
+\institute{\inst{1}ARAMIS Lab, \inst{2}Another institute}
 \date{\today}
 
 %------------------
 
-\includeonlyframes{titlepage}
+% \includeonlyframes{titlepage}
 
 \begin{document}
 
@@ -122,7 +122,7 @@
 
   \begin{figure}
     \includegraphics[height=.6\paperheight]{logos/logo_ARAMISLAB.png}
-    \caption{Une belle image !}
+    \caption{A sample figure}
   \end{figure}
 
 \end{frame}
@@ -130,7 +130,18 @@
 \begin{frame}
   \frametitle{Table}
 
-
+  \begin{table}
+    \begin{tabular}{|c|c|}
+      \hline
+      column 1 & column 2\\
+      \hline
+      some stuff here & and also there\\
+      \hline
+      another column & one last cell\\
+      \hline
+    \end{tabular}
+    \caption{A sample table}
+  \end{table}
 
 \end{frame}
 
