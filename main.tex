@@ -23,8 +23,13 @@
 \usetheme[
   % showmaxslides, % displays the total page number in the page numbering
   % showsectiontoc, % displays a table of contents at the beginning of each section
-  nexa  % uses Nexa font instead of default Trebuchet MS ;
-        % WARNING : you must build with LuaTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
+  serif,  % uses a serif font for body text ;
+          % depending on your TeX compiling engine, it will be different :
+          %   on LuaTeX and XeTeX : EB Garamond
+          %   on pdfTeX : Times New Roman
+          % NB : if you use any amount of math in your presentation, it is advised to use a serif font
+  nexa  % uses Nexa font for structure text instead of default Trebuchet MS ;
+        % WARNING : you must build with LuaTeX or XeTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
 ]{Aramis}
 
 % Paths and misc stuff

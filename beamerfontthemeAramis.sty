@@ -1,19 +1,37 @@
+\RequirePackage{iftex}
 \RequirePackage{ifthen}
 
 \mode<presentation>
 
 \newboolean{nexa}
 \setboolean{nexa}{false}
+\newboolean{serif}
+\setboolean{serif}{false}
 
 \DeclareOptionBeamer{nexa}{\setboolean{nexa}{true}}
+\DeclareOptionBeamer{serif}{\setboolean{serif}{true}}
 
 
 \ProcessOptionsBeamer
 
-\ifLuaTeX
+\ifpdftex
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{times}
+\else
   \RequirePackage{fontspec}
 
-  \setmainfont{EB Garamond}
+  \ifthenelse{\boolean{serif}}
+    {\setmainfont{EB Garamond}}
+    {
+      \setmainfont{AvenirLTStd}[
+        Path = fonts/Avenir/,
+        UprightFont = *-Light,
+        BoldFont = *-Heavy,
+        ItalicFont = *-LightOblique,
+        BoldItalicFont = *-HeavyOblique,
+        Extension = .otf
+      ]
+    }
 
   \setsansfont{Nexa}[
     Path = fonts/,
@@ -26,10 +44,6 @@
 
 \fi
 
-\ifPDFTeX
-  \RequirePackage[T1]{fontenc}
-  \RequirePackage{times}
-\fi
 
 %  if you want to customize the various font sizes
 % \renewcommand\footnotesize{\fontsize{8pt}{10pt}\selectfont}
