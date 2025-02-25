@@ -1,15 +1,24 @@
+\RequirePackage{ifthen}
 \RequirePackage{tikz}
 
 \mode<presentation>
 
+\newboolean{showsectiontoc}
+\setboolean{showsectiontoc}{false}
+
+\DeclareOptionBeamer{showsectiontoc}{\setboolean{showsectiontoc}{true}}
+
+\ProcessOptionsBeamer
+
 \useinnertheme{circles}
 
-
-\AtBeginSection{
-  \begin{frame}{Section outline}
-    \tableofcontents[currentsection, hideothersubsections]
-  \end{frame}
-}
+\ifthenelse{\boolean{showsectiontoc}}{
+  \AtBeginSection{
+    \begin{frame}{Section outline}
+      \tableofcontents[currentsection, hideothersubsections]
+    \end{frame}
+  }
+}{}
 
 
 \setbeamertemplate{caption}[numbered]
