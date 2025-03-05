@@ -19,33 +19,18 @@
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
 % \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
 
-\makeatletter
-  \def\beamer@calltheme#1#2#3{%
-    \def\beamer@themelist{#2}
-    \@for\beamer@themename:=\beamer@themelist\do
-    {\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}}
-
-  \def\usefolder#1{
-    \def\beamer@themelocation{#1}
-  }
-  \def\beamer@themelocation{}
-
 % Layout theme
-
-  \usefolder{theme}
-  \usetheme{Aramis}
-  % \usetheme[
-  %   % showmaxslides, % displays the total page number in the page numbering
-  %   % showsectiontoc, % displays a table of contents at the beginning of each section
-  %   serif,  % uses a serif font for body text ;
-  %           % depending on your TeX compiling engine, it will be different :
-  %           %   on LuaTeX and XeTeX : EB Garamond
-  %           %   on pdfTeX : Times New Roman
-  %           % NB : if you use any amount of math in your presentation, it is advised to use a serif font
-  %   nexa  % uses Nexa font for structure text instead of default Trebuchet MS ;
-  %         % WARNING : you must build with LuaTeX or XeTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
-  % ]{Aramis}
-
+\usetheme[
+  % showmaxslides, % displays the total page number in the page numbering
+  % showsectiontoc, % displays a table of contents at the beginning of each section
+  serif,  % uses a serif font for body text ;
+          % depending on your TeX compiling engine, it will be different :
+          %   on LuaTeX and XeTeX : EB Garamond
+          %   on pdfTeX : Times New Roman
+          % NB : if you use any amount of math in your presentation, it is advised to use a serif font
+  nexa  % uses Nexa font for structure text instead of default Trebuchet MS ;
+        % WARNING : you must build with LuaTeX or XeTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
+]{Aramis}
 
 % Paths and misc stuff
 \graphicspath{{assets/img/}}
