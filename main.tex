@@ -14,6 +14,7 @@
 % Packages
 \usepackage[T1]{fontenc}
 \usepackage{subcaption}
+\usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{lipsum} % useful for creating some dummy text
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
@@ -142,14 +143,13 @@
   \frametitle{Table}
 
   \begin{table}
-    \begin{tabular}{|c|c|}
-      \hline
+    \begin{tabular}{cc}
+      \toprule
       column 1 & column 2\\
-      \hline
+      \midrule
       some stuff here & and also there\\
-      \hline
       another column & one last cell\\
-      \hline
+      \bottomrule
     \end{tabular}
     \caption{A sample table}
   \end{table}
