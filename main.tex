@@ -1,9 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beamer Presentation - LaTeX Template
-% Version 2.0 (March 8, 2022)
-% Original Template: https://www.LaTeXTemplates.com
-% License: CC BY-NC-SA 4.0
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% —————————————————————————————————————————————————————————————————————————————————
+% Aramis beamer template
+% Version 1.0 (March 14, 2025)
+% —————————————————————————————————————————————————————————————————————————————————
 
 \documentclass[
   11pt, % Default font size
@@ -12,11 +10,15 @@
 
 % Packages
 \usepackage[T1]{fontenc}
-\usepackage{subcaption}
-\usepackage{booktabs}
-\usepackage{tikz}
+\usepackage{subcaption} % for subfigures
+\usepackage{booktabs} % for better-looking tables
+\usepackage{acronym} % for acronyms management
+
+\usepackage{tikz} % mandatory for the titlepage to be correctly displayed
 \usetikzlibrary{calc}
+
 \usepackage{lipsum} % useful for creating some dummy text
+
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
 % \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
 
@@ -36,9 +38,9 @@
 % Paths and misc stuff
 \graphicspath{{assets/img/}}
 
-%------------------
-%  PRESENTATION INFORMATION
-%------------------
+% —————————————————————————————————————————————————————————————————————————————————
+% (PRESENTATION METADATA)
+% —————————————————————————————————————————————————————————————————————————————————
 
 \title{Title : usually longer than you would expect for a research paper, so make sure it fits}
 \subtitle{Subtitle : shorter than the title}
@@ -46,32 +48,37 @@
 \institute{\inst{1}ARAMIS Lab, \inst{2}Another institute}
 \date{\today}
 
-%------------------
-
-% \includeonlyframes{titlepage}
+% —————————————————————————————————————————————————————————————————————————————————
+% (SLIDES)
+% —————————————————————————————————————————————————————————————————————————————————
 
 \begin{document}
 
-%------------------
-%  TITLE SLIDE
-%------------------
+% —————————————————————————————————————————————————————————————————————————————————
+% (ACRONYMS LOADING)
+
+% NOTE: must be done within the document environment
+\input{src/acronyms.tex}
+
+% —————————————————————————————————————————————————————————————————————————————————
+% (TITLE PAGE)
 
 \begin{frame}[plain, label=titlepage]
-  \titlepage % Displays the title slide
+  \titlepage
 \end{frame}
 
-%------------------
-%  TABLE OF CONTENTS SLIDE
-%------------------
+% —————————————————————————————————————————————————————————————————————————————————
+% (TABLE OF CONTENTS)
 
-\begin{frame}
-  \frametitle{Presentation Outline} % Slide title
-  \tableofcontents[hideallsubsections] % Displays the table of contents
+\begin{frame}{Presentation Outline}
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
-%------------------
-%  BODY SECTIONS
-%------------------
+% —————————————————————————————————————————————————————————————————————————————————
+% (BODY SLIDES)
+
+% if you have a big presentation and would prefer a more modular structure,
+% you can put your slides in src/slides and requestes them with \input
 
 \section{Text}
 
@@ -83,6 +90,10 @@
   \textbf{This is some bolt text.}
   \vfill
   \textit{This is some italic text.}
+  \vfill
+  \emph{This is some text with emphasis.}
+  \vfill
+  Typographic advice : never use \textbf{\textit{italic bold text}} or \underline{underline text} in presentation ; also, tend to use the \emph{emphasis} instead of \textit{italic} or \textbf{bold}.
 
 \end{frame}
 
@@ -93,6 +104,13 @@
   \[\mathcal{N}(x~|~\mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\},\]
   or also write inline math like this : $f(x) = \mathcal{N}(x~|~\mu, \sigma)$.
 
+\end{frame}
+
+\begin{frame}{Acronyms management}
+  We can use defined acronyms : their first appareance will feature their definition, such as “Let's talk about \ac{MRI}."
+  \vfill
+
+  Then, their following appearances will automatically be as acronyms : "Let's talk again about \ac{MRI}."
 \end{frame}
 
 \begin{frame}
@@ -160,5 +178,13 @@
   \frametitle{References}
 
 \end{frame}
+
+% —————————————————————————————————————————————————————————————————————————————————
+% (APPENDIX)
+
+% the following slides will not be counted in the total frames number,
+% if ever this option is enabled
+
+\appendix
 
 \end{document}
