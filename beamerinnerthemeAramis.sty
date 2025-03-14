@@ -20,7 +20,6 @@
   }
 }{}
 
-
 \setbeamertemplate{caption}[numbered]
 
 % lengths
@@ -42,6 +41,12 @@
 \setlength{\righttextboxsmargin}{0.06\paperwidth}
 \newlength{\righttextboxwidth}
 \setlength{\righttextboxwidth}{0.48\paperwidth}
+
+% horizontal bar above the title
+\newlength{\horizontalbarlength}
+\setlength{\horizontalbarlength}{0.035\paperwidth}
+\newlength{\horizontalbarwidth}
+\setlength{\horizontalbarwidth}{0.0125\paperheight}
 
 % colored logo and infos, left side of vertical bar
 \newlength{\lefttextboxsmargin}
@@ -75,8 +80,7 @@
       rectangle,
       top color = color_aramis_green,
       bottom color = color_aramis_blue,
-      draw = white]
-      (vertical bar top) rectangle([xshift=\verticalbarwidth]vertical bar bottom);
+    draw = white] (vertical bar top) rectangle([xshift=\verticalbarwidth]vertical bar bottom);
 
     % right elements margin
     \node (right margin top) at ([xshift=\righttextboxsmargin]vertical bar top) {};
@@ -86,25 +90,18 @@
     % text elements
     % title and subtitle
     \node (titles anchor) at ([yshift=-\titlesheight]right margin top) {};
-    \node (title)
-      at (titles anchor)
-      [anchor=south west, text width=\righttextboxwidth]
-      {\usebeamerfont{title}\inserttitle};
-    \node (subtitle)
-      at (titles anchor)
-      [anchor=north west, text width=\righttextboxwidth]
-      {\usebeamerfont{subtitle}\insertsubtitle};
+    \node (title) at (titles anchor) [anchor=south west, text width=\righttextboxwidth] {\usebeamerfont{title}\inserttitle};
+    \node (subtitle) at (titles anchor) [anchor=north west, text width=\righttextboxwidth] {\usebeamerfont{subtitle}\insertsubtitle};
+    \fill[
+      rectangle,
+      left color = color_aramis_green,
+      right color = color_aramis_blue,
+    draw = white] ($(title.north west) + (0.01\paperwidth, 0.005\paperwidth)$) rectangle($(title.north west) + (0.01\paperwidth + \horizontalbarlength, 0.005\paperwidth + \horizontalbarwidth)$);
 
     % author(s) and institute(s)
     \node (author anchor) at ([yshift=\infosheight]right margin bottom) {};
-    \node (author)
-      at (author anchor)
-      [anchor=south west, text width=\righttextboxwidth]
-      {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor};
-    \node (institute)
-      at (author anchor)
-      [anchor=north west, text width=\righttextboxwidth]
-      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute};
+    \node (author) at (author anchor) [anchor=south west, text width=\righttextboxwidth] {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor};
+    \node (institute) at (author anchor) [anchor=north west, text width=\righttextboxwidth] {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute};
 
     % left elements margin
     \node (left margin top) at ([xshift=-\lefttextboxsmargin]vertical bar top) {};
@@ -112,16 +109,10 @@
     % \draw[color_aramis_black, very thin, dashed] (left margin top) -- (left margin bottom);
 
     % logo
-    \node (logo)
-      at ([yshift=-\titlesheight]left margin top)
-      [anchor=south east]
-      {\includegraphics[height=0.15\paperheight]{logos/logo_ARAMISLAB.png}};
+    \node (logo) at ([yshift=-\titlesheight]left margin top) [anchor=south east] {\includegraphics[height=0.15\paperheight]{logos/logo_ARAMISLAB.png}};
     % date
     \node (infos anchor) at ([yshift=\infosheight]left margin bottom) {};
-    \node (date)
-      at (infos anchor)
-      [anchor=east]
-      {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
+    \node (date) at (infos anchor) [anchor=east] {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
 
   \end{tikzpicture}
 }
