@@ -6,16 +6,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[
-	11pt, % Default font size
-	aspectratio=169, % Set 16:9 aspect ratio
+  11pt, % Default font size
+  aspectratio=169, % Set 16:9 aspect ratio
 ]{beamer}
-
 
 % Packages
 \usepackage[T1]{fontenc}
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usepackage{lipsum} % useful for creating some dummy text
 \usepackage[base]{babel} % comment if you intend to create a presentation in french
 % \usepackage[french]{babel} % uncomment if you intend to create a presentation in french
@@ -25,19 +25,19 @@
   % showmaxslides, % displays the total page number in the page numbering
   % showsectiontoc, % displays a table of contents at the beginning of each section
   serif,  % uses a serif font for body text ;
-          % depending on your TeX compiling engine, it will be different :
-          %   on LuaTeX and XeTeX : EB Garamond
-          %   on pdfTeX : Times New Roman
-          % NB : if you use any amount of math in your presentation, it is advised to use a serif font
+  % depending on your TeX compiling engine, it will be different :
+  %   on LuaTeX and XeTeX : EB Garamond
+  %   on pdfTeX : Times New Roman
+  % NB : if you use any amount of math in your presentation, it is advised to use a serif font
   nexa  % uses Nexa font for structure text instead of default Trebuchet MS ;
-        % WARNING : you must build with LuaTeX or XeTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
+  % WARNING : you must build with LuaTeX or XeTeX, otherwise the default beamer font (e.g. sans-serif Computer Modern) will be used.
 ]{Aramis}
 
 % Paths and misc stuff
 \graphicspath{{assets/img/}}
 
 %------------------
-%	PRESENTATION INFORMATION
+%  PRESENTATION INFORMATION
 %------------------
 
 \title{Title : usually longer than you would expect for a research paper, so make sure it fits}
@@ -53,24 +53,24 @@
 \begin{document}
 
 %------------------
-%	TITLE SLIDE
+%  TITLE SLIDE
 %------------------
 
 \begin{frame}[plain, label=titlepage]
-	\titlepage % Displays the title slide
+  \titlepage % Displays the title slide
 \end{frame}
 
 %------------------
-%	TABLE OF CONTENTS SLIDE
+%  TABLE OF CONTENTS SLIDE
 %------------------
 
 \begin{frame}
-	\frametitle{Presentation Outline} % Slide title
-	\tableofcontents[hideallsubsections] % Displays the table of contents
+  \frametitle{Presentation Outline} % Slide title
+  \tableofcontents[hideallsubsections] % Displays the table of contents
 \end{frame}
 
 %------------------
-%	BODY SECTIONS
+%  BODY SECTIONS
 %------------------
 
 \section{Text}
@@ -125,8 +125,6 @@
 
 \end{frame}
 
-
-
 \section{Figures and stuff}
 
 \begin{frame}
@@ -155,7 +153,6 @@
   \end{table}
 
 \end{frame}
-
 
 \section{Bibliography}
 
