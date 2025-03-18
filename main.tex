@@ -24,7 +24,7 @@
 
 % Layout theme
 \usetheme[
-  % showmaxslides, % displays the total page number in the page numbering
+  showmaxslides, % displays the total page number in the page numbering
   % showsectiontoc, % displays a table of contents at the beginning of each section
   serif,  % uses a serif font for body text ;
   % depending on your TeX compiling engine, it will be different :
@@ -37,6 +37,16 @@
 
 % Paths and misc stuff
 \graphicspath{{assets/img/}}
+
+% commands to make sure the slides number in the appendix aren't counted in the total frames number
+\newcommand\backupbegin{
+  \newcounter{framenumberappendix}
+  \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand\backupend{
+  \addtocounter{framenumberappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberappendix}}
+}
 
 % —————————————————————————————————————————————————————————————————————————————————
 % (PRESENTATION METADATA)
@@ -126,9 +136,9 @@
   \frametitle{Bullet list}
 
   \begin{itemize}
-    \item First point
-    \item Second point
-    \item Third point
+    \item A point
+    \item Another point
+    \item A final point
   \end{itemize}
 
 \end{frame}
@@ -140,6 +150,16 @@
     \item Second point
     \item Third point
   \end{enumerate}
+
+\end{frame}
+
+\subsection{Description lists}
+\begin{frame}{Description lists}
+  \begin{description}
+    \item[First] First object
+    \item[Second] Second object
+    \item[Third] Third object
+  \end{description}
 
 \end{frame}
 
@@ -185,6 +205,11 @@
 % the following slides will not be counted in the total frames number,
 % if ever this option is enabled
 
-\appendix
+\backupbegin
+\begin{frame}{Appendix frame}
+
+  If you use the total frame number option, slides in the appendix won't be counted in the total frames number.
+\end{frame}
+\backupend
 
 \end{document}
