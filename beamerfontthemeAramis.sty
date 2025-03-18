@@ -11,39 +11,41 @@
 \DeclareOptionBeamer{nexa}{\setboolean{nexa}{true}}
 \DeclareOptionBeamer{serif}{\setboolean{serif}{true}}
 
-
 \ProcessOptionsBeamer
 
 \ifpdftex
-  \RequirePackage[T1]{fontenc}
-  \RequirePackage{times}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{times}
 \else
-  \RequirePackage{fontspec}
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
 
-  \ifthenelse{\boolean{serif}}
-    {\setmainfont{EB Garamond}}
-    {
-      \setmainfont{AvenirLTStd}[
-        Path = assets/fonts/Avenir/,
-        UprightFont = *-Light,
-        BoldFont = *-Heavy,
-        ItalicFont = *-LightOblique,
-        BoldItalicFont = *-HeavyOblique,
-        Extension = .otf
-      ]
-    }
-
-  \setsansfont{Nexa}[
-    Path = assets/fonts/Nexa/,
-    UprightFont = *Light,
-    BoldFont = *Bold,
-    ItalicFont = *LightItalic,
-    BoldItalicFont = *BoldItalic,
+\ifthenelse{\boolean{serif}}
+{
+  \setmainfont{EB Garamond}
+  \setmathfont{Garamond-Math}
+}
+{
+  \setmainfont{AvenirLTStd}[
+    Path = assets/fonts/Avenir/,
+    UprightFont = *-Light,
+    BoldFont = *-Heavy,
+    ItalicFont = *-LightOblique,
+    BoldItalicFont = *-HeavyOblique,
     Extension = .otf
   ]
+}
+
+\setsansfont{Nexa}[
+  Path = assets/fonts/Nexa/,
+  UprightFont = *Light,
+  BoldFont = *Bold,
+  ItalicFont = *LightItalic,
+  BoldItalicFont = *BoldItalic,
+  Extension = .otf
+]
 
 \fi
-
 
 %  if you want to customize the various font sizes
 % \renewcommand\footnotesize{\fontsize{8pt}{10pt}\selectfont}
@@ -52,11 +54,8 @@
 % \renewcommand\large{\fontsize{14pt}{16pt}\selectfont}
 % \renewcommand\Large{\fontsize{16pt}{18pt}\selectfont}
 
-
 % the main fonts
 \setbeamerfont{normal text}{family = \rmfamily, size = \normalsize, series = \mdseries}
-\setbeamerfont{body text}{parent = normal text, size = \small}
-
 \setbeamerfont{structure text}{family = \sffamily, size = \normalsize, series = \mdseries}
 
 % title page
@@ -71,18 +70,13 @@
 \setbeamerfont{section in toc}{parent = structure text, series = \bfseries}
 \setbeamerfont{subsection in toc}{parent = structure text}
 
-
 % regular frames
 \setbeamerfont{frametitle}{parent = structure text, size = \large, series = \bfseries}
 \setbeamerfont{framenumber}{parent = structure text, size = \footnotesize}
 
-% math environment, to be sure it's in the theme's serif font
-\usefonttheme[onlymath]{serif}
-
 % captions
 \setbeamerfont{caption}{parent=normal text, size=\footnotesize}
 \setbeamerfont{caption name}{parent=caption, series = \bfseries}
-
 
 % don't ask me why there's this line, it's needed in order to have a proper body text
 \AtBeginDocument{\usebeamerfont{normal text}}
