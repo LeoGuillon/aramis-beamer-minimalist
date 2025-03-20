@@ -85,6 +85,8 @@
 \begin{frame}
   \frametitle{Plain text}
 
+  Body text serif font : EB Garamond.
+  \vfill
   \lipsum[1][1-5]
   \vfill
   \textbf{This is some bolt text.}
@@ -97,9 +99,24 @@
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Some maths}
+\begin{frame}{Code blocks}
+  Monospace font : \texttt{Jetbrains Mono}.
 
+  \vfill
+  You can write inline code : \texttt{print("Hello world!")}.
+
+  \vfill
+  And also displays code blocks :
+
+  % TODO: display a code block environment
+\end{frame}
+
+\begin{frame}
+  \frametitle{Math blocks}
+
+  Math font : $Garamond-math$.
+
+  \vfill
   You can display some math blocks like this :
   \[\mathcal{N}(x~|~\mu, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\},\]
   or also write inline math like this : $f(x) = \mathcal{N}(x~|~\mu, \sigma)$.
