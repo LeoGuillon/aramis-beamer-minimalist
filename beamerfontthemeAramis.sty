@@ -22,38 +22,15 @@
 
 \ifthenelse{\boolean{serif}}
 {
-  \setmainfont{EB Garamond}
-  \setmathfont{Garamond-Math}
+  \setmainfont{IBM Plex Serif}
 }
 {
-  \setmainfont{AvenirLTStd}[
-    Path = assets/fonts/Avenir/,
-    UprightFont = *-Light,
-    BoldFont = *-Heavy,
-    ItalicFont = *-LightOblique,
-    BoldItalicFont = *-HeavyOblique,
-    Extension = .otf
-  ]
+  \setmainfont{IBM Plex Sans}
 }
 
-\setsansfont{Nexa}[
-  Path = assets/fonts/Nexa/,
-  UprightFont = *Light,
-  BoldFont = *Bold,
-  ItalicFont = *LightItalic,
-  BoldItalicFont = *BoldItalic,
-  Extension = .otf
-]
-
-\setmonofont{JetBrainsMono}[
-  Path = assets/fonts/JetBrainsMono/,
-  UprightFont = *-Regular,
-  BoldFont = *-Bold,
-  ItalicFont = *-Italic,
-  BoldItalicFont = *-BoldItalic,
-  Extension = .ttf,
-  Scale = 0.85 % kinda big compared to Garamond
-]
+\setsansfont{IBM Plex Sans}
+\setmonofont{IBM Plex Mono}
+\setmathfont{IBM Plex Math}
 
 \fi
 
@@ -70,7 +47,7 @@
 
 % title page
 \setbeamerfont{title}{parent = structure text, size = \Large, series = \bfseries}
-\setbeamerfont{subtitle}{parent = structure text, shape = \itshape}
+\setbeamerfont{subtitle}{parent = structure text, size = \Large, shape = \itshape}
 
 \setbeamerfont{author}{parent = structure text, size = \footnotesize, series = \bfseries}
 \setbeamerfont{institute}{parent = structure text, size = \scriptsize}
@@ -82,7 +59,7 @@
 
 % regular frames
 \setbeamerfont{frametitle}{parent = structure text, size = \large, series = \bfseries}
-\setbeamerfont{framenumber}{parent = structure text, size = \footnotesize}
+\setbeamerfont{framenumber}{parent = structure text, size = \footnotesize, series = \bfseries}
 
 \setbeamerfont{description item}{parent = normal text, series = \bfseries}
 
